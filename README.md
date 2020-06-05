@@ -1,6 +1,6 @@
 # OO Desing
 
-Esta aplicación permite calcular la media y la desviacion estandar de conjunto de datos puestos como columnas.
+Esta aplicación permite calcular la media y la desviación estándar de conjunto de datos puestos como columnas.
 
 ## Autor
 
@@ -9,10 +9,10 @@ Esta aplicación permite calcular la media y la desviacion estandar de conjunto 
 
 ## Rendimiento LOC/h
 
-1. Desde las 11:00 , hasta las 22:00 (con un receso de 2 hr)  fueron aprox 250 lineas
-2. Desde las 18:00 , hasta las 20:00 PM fueron aprox 50 lineas.
+1. Desde las 12:00 , hasta las 22:00 (con un receso de 1 hr)  fueron aprox 350 lineas
+2. Desde las 12:00 , hasta las 4:30 (con un receso de 1 hr)  PM fueron aprox 50 lineas.
 
-LOC=23 LOC/h
+LOC=33 LOC/h
 
 ### Prerrequisitos
 
