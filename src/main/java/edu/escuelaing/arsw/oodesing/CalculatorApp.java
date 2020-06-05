@@ -29,7 +29,7 @@ public class CalculatorApp {
         };
         
         Calculator.DoubleMath sDeviation=(a)->{
-            Double m=myApp.operateBinary(a, mean);
+            Double m=myApp.operateList(a, mean);
             Double ans=0.0;
             for(Double n:a){
                 ans+=Math.pow((n-m),2);
@@ -38,29 +38,15 @@ public class CalculatorApp {
         };
                                     
         Path file = Paths.get(args[0]);  
-        List<Double> lista=getNumbers(file);                         
-        Double m=myApp.operateBinary(lista, mean);
-        Double d=myApp.operateBinary(lista, sDeviation);
-        System.out.println("Mean : "+m+", Standard Deviation: "+d);     
-               
-    }
-
-    private static List<Double> getNumbers(Path file) throws Exception {
-        List<Double> ans=new LinkedListG<>();
-        Charset charset = Charset.forName("UTF-8");                                 
-        try {
-            BufferedReader BR = Files.newBufferedReader(file, charset);
-            String linea= BR.readLine();
-            while (linea != null) {  
-                String[] tmp = linea.split(" "); 
-                for (String s:tmp){
-                    ans.add(Double.parseDouble(s));
-                }
-                linea= BR.readLine();
-            }                     
-        } catch (IOException ex) {
-            throw new Exception("Error leyendo el archivo, revise la ruta"); 
-        }
-        return ans;
+        FileReaderColumns frc=new FileReaderColumns(2);
+        frc.read(file);
+        List<List<Double>> data=frc.getData();
+        int n=0;
+        for (List<Double> col: data){
+            Double m=myApp.operateList(col, mean);
+            Double d=myApp.operateList(col, sDeviation);
+            System.out.println("Column "+n+" -> Mean : "+m+", Standard Deviation: "+d);   
+            n++;
+        }                      
     }
 }

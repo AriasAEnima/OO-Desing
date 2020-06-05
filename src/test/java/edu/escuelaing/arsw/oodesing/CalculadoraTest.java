@@ -1,3 +1,5 @@
+package edu.escuelaing.arsw.oodesing;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -35,7 +37,7 @@ public class CalculadoraTest {
         };
         
         sDeviation=(a)->{
-            Double m=myApp.operateBinary(a, mean);
+            Double m=myApp.operateList(a, mean);
             Double ans=0.0;
             for(Double n:a){
                 ans+=(n-m)*(n-m);
@@ -70,8 +72,8 @@ public class CalculadoraTest {
         lista.add(1657.0);
         lista.add(624.0);
         lista.add(1503.0);
-        Double ans1m=myApp.operateBinary(lista, mean);
-        Double ans2m=myApp.operateBinary(lista, sDeviation);
+        Double ans1m=myApp.operateList(lista, mean);
+        Double ans2m=myApp.operateList(lista, sDeviation);
         assertEquals(550.6, ans1m,0.0001);
         assertEquals(572.03, ans2m,0.005);
     }
@@ -89,14 +91,14 @@ public class CalculadoraTest {
         lista.add(198.7);
         lista.add(38.8);
         lista.add(138.2);
-        Double ans1m=myApp.operateBinary(lista, mean);
-        Double ans2m=myApp.operateBinary(lista, sDeviation);
+        Double ans1m=myApp.operateList(lista, mean);
+        Double ans2m=myApp.operateList(lista, sDeviation);
         assertEquals(60.32, ans1m,0.0001);
         assertEquals(62.26, ans2m,0.005);
     }
     
     @Test
-    public void datos3(){
+    public void Datos3(){
         List<Double> lista=new LinkedListG<Double>();
         lista.add(186.0);
         lista.add(699.0);
@@ -108,8 +110,8 @@ public class CalculadoraTest {
         lista.add(1890.0);
         lista.add(788.0);
         lista.add(1601.0);
-        Double ans1m=myApp.operateBinary(lista, mean);
-        Double ans2m=myApp.operateBinary(lista, sDeviation);
+        Double ans1m=myApp.operateList(lista, mean);
+        Double ans2m=myApp.operateList(lista, sDeviation);
         assertEquals(638.9, ans1m,0.0001);
         assertEquals(625.633981, ans2m,0.00001);
     }

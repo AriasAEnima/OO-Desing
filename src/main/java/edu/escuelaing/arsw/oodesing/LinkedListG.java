@@ -12,22 +12,32 @@ import java.util.ListIterator;
  *
  * @author J. Eduardo Arias
  */
-public class LinkedListG<E> implements Collection<E>, List<E>{
+public class LinkedListG<E> implements List<E>{
     private NodeLinkedListG<E> head;
     private NodeLinkedListG<E> tail;
     private int size;
-
+    
+    /**
+     * Crea la lista con cabeza y cola en nulo
+     */
     public LinkedListG() {
        head=null;
        tail=null;
        size=0;
     }
-
+    /**
+     *
+     * @return devuelve la cabeza del linked list
+     */
     public NodeLinkedListG getHead(){
         return head;
     }
     
-       
+    /**
+     * Con la estrategia de Linked List agrega elementos al final
+     * @param e el valor del nodo
+     * 
+     */   
     @Override
     public boolean add(E e) {
         NodeLinkedListG<E> nuevo=new NodeLinkedListG(e);
@@ -57,7 +67,9 @@ public class LinkedListG<E> implements Collection<E>, List<E>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
+    /** 
+     * @return devuelve el tamaño del LinkedListG
+     */
     @Override
     public int size() {
         return size;
@@ -70,7 +82,7 @@ public class LinkedListG<E> implements Collection<E>, List<E>{
     
     @Override
     public Iterator<E> iterator() {
-           return new ListIteratorG<E>(this);              
+           return new ListIteratorG<>(this);              
     }
     
     @Override
@@ -89,8 +101,6 @@ public class LinkedListG<E> implements Collection<E>, List<E>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
-
     @Override
     public boolean containsAll(Collection<?> c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -100,8 +110,6 @@ public class LinkedListG<E> implements Collection<E>, List<E>{
     public boolean addAll(Collection<? extends E> c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-  
 
     @Override
     public boolean retainAll(Collection<?> c) {
@@ -160,8 +168,17 @@ public class LinkedListG<E> implements Collection<E>, List<E>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-     private class ListIteratorG<E> implements ListIterator<E> {
+    /**
+     * Es una implementacion rapida de ListIterator
+     * @param <E> del tipo que pueda contener LinkedListG
+     */
+    private class ListIteratorG<E> implements ListIterator<E> {
         private NodeLinkedListG<E> actual;
+        
+        /**
+         * 
+         * @param list en base de un LinkedListG toma como actual la cabeza de este.
+         */
         private ListIteratorG(LinkedListG<E> list) {
             actual=list.getHead();
         }

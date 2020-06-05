@@ -22,9 +22,12 @@ import java.util.LinkedList;
 public class Calculator {
     
     public interface IntegerMath {
-        int operation(int a, int b);
+        int operation(int a, int b);        
     }
     
+    /**
+     * Permite hacer operaciones sobre una lista de double's.
+     */
     public interface DoubleMath {
         double operation(List<Double> ld);
     }
@@ -33,7 +36,13 @@ public class Calculator {
         return op.operation(a, b);
     }
     
-    public double operateBinary(List<Double> a, DoubleMath op) {
+    /**
+     * Ejecuta una operacion sobre una lista de doubles.
+     * @param a la lista
+     * @param op la opracion
+     * @return resultado de la operacion
+     */
+    public double operateList(List<Double> a, DoubleMath op) {
         return op.operation(a);
     }
   
