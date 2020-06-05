@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eci.escuelaing.edu.arsw.oodesing;
+package edu.escuelaing.arsw.oodesing;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -27,8 +27,7 @@ public class LinkedListG<E> implements Collection<E>, List<E>{
         return head;
     }
     
-
-        
+       
     @Override
     public boolean add(E e) {
         NodeLinkedListG<E> nuevo=new NodeLinkedListG(e);
@@ -42,8 +41,7 @@ public class LinkedListG<E> implements Collection<E>, List<E>{
         return true;
     }
     
-    
-    
+       
     @Override
     public E remove(int index) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

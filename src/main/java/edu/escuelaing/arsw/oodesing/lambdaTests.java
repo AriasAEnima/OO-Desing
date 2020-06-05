@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eci.escuelaing.edu.arsw.oodesing;
-
-import java.util.ArrayList;
+package edu.escuelaing.arsw.oodesing;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+
 
 /**
  *
@@ -18,17 +17,17 @@ import java.util.function.Predicate;
 public class lambdaTests {
 
     public static void main(String[] args) {
-        List<Integer> numeros = new LinkedListG<>();
-        numeros.add(23);
-        numeros.add(445);
-        numeros.add(16);
-        for (Integer n : numeros) {
+        List<Float> numeros = new LinkedListG<>();
+        numeros.add((float) 23);
+        numeros.add((float) 445);
+        numeros.add(Float.parseFloat("17"));
+        for (Float n : numeros) {
             System.out.println(n);
         }
 
         printNumbers(
                 numeros,
-                (Integer p) -> p >= 18
+                (Float p) -> p >=  18
                 && p <= 29
         );
 
@@ -55,34 +54,34 @@ public class lambdaTests {
         
     }
 
-    public static void printNumbers(List<Integer> numeros, CheckNumber tester) {
-        for (Integer p : numeros) {
+    public static void printNumbers(List<Float> numeros, CheckNumber tester) {
+        for (Float p : numeros) {
             if (tester.test(p)) {
                 System.out.println("Cumple: " + p);
             }
         }
     }
 
-    public static void printNumbersWithPredicate(List<Integer> lista, Predicate<Integer> tester) {
-        for (Integer p : lista) {
+    public static void printNumbersWithPredicate(List<Float> lista, Predicate<Float> tester) {
+        for (Float p : lista) {
             if (tester.test(p)) {
                 System.out.println("Cumple Predicado: " + p);
             }
         }
     }
 
-    public static void processNumbers(List<Integer> lista, Predicate<Integer> tester, Consumer<Integer> block) {
-        for (Integer p : lista) {
+    public static void processNumbers(List<Float> lista, Predicate<Float> tester, Consumer<Float> block) {
+        for (Float p : lista) {
             if (tester.test(p)) {
                 block.accept(p);
             }
         }
     }
 
-    public static void processNumbersWithFunction(List<Integer> roster, Predicate<Integer> tester,
-            Function<Integer, String> mapper,
+    public static void processNumbersWithFunction(List<Float> roster, Predicate<Float> tester,
+            Function<Float, String> mapper,
             Consumer<String> block) {
-        for (Integer p : roster) {
+        for (Float p : roster) {
             if (tester.test(p)) {
                 String data = mapper.apply(p);
                 block.accept(data);

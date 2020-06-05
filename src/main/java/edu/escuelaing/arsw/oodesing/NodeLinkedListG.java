@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eci.escuelaing.edu.arsw.oodesing;
+package edu.escuelaing.arsw.oodesing;
 
 import java.util.Iterator;
 import java.util.ListIterator;
