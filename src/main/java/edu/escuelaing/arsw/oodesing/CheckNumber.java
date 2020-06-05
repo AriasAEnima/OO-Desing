@@ -10,5 +10,5 @@ package edu.escuelaing.arsw.oodesing;
  * @author J. Eduardo Arias
  */
 public interface CheckNumber {
-    boolean test(Float p);
+    boolean test(Double p);
 }

@@ -25,15 +25,15 @@ public class Calculator {
         int operation(int a, int b);
     }
     
-    public interface FloatMath {
-        float operation(List<Float> lf);
+    public interface DoubleMath {
+        double operation(List<Double> ld);
     }
 
     public int operateBinary(int a, int b, IntegerMath op) {
         return op.operation(a, b);
     }
     
-    public float operateBinary(List<Float> a, FloatMath op) {
+    public double operateBinary(List<Double> a, DoubleMath op) {
         return op.operation(a);
     }
   

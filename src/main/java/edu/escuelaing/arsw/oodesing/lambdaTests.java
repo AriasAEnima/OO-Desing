@@ -17,17 +17,17 @@ import java.util.function.Predicate;
 public class lambdaTests {
 
     public static void main(String[] args) {
-        List<Float> numeros = new LinkedListG<>();
-        numeros.add((float) 23);
-        numeros.add((float) 445);
-        numeros.add(Float.parseFloat("17"));
-        for (Float n : numeros) {
+        List<Double> numeros = new LinkedListG<>();
+        numeros.add( 23.0);
+        numeros.add(445.0);
+        numeros.add(Double.parseDouble("17"));
+        for (Double n : numeros) {
             System.out.println(n);
         }
 
         printNumbers(
                 numeros,
-                (Float p) -> p >=  18
+                (Double p) -> p >=  18
                 && p <= 29
         );
 
@@ -54,34 +54,34 @@ public class lambdaTests {
         
     }
 
-    public static void printNumbers(List<Float> numeros, CheckNumber tester) {
-        for (Float p : numeros) {
+    public static void printNumbers(List<Double> numeros, CheckNumber tester) {
+        for (Double p : numeros) {
             if (tester.test(p)) {
                 System.out.println("Cumple: " + p);
             }
         }
     }
 
-    public static void printNumbersWithPredicate(List<Float> lista, Predicate<Float> tester) {
-        for (Float p : lista) {
+    public static void printNumbersWithPredicate(List<Double> lista, Predicate<Double> tester) {
+        for (Double p : lista) {
             if (tester.test(p)) {
                 System.out.println("Cumple Predicado: " + p);
             }
         }
     }
 
-    public static void processNumbers(List<Float> lista, Predicate<Float> tester, Consumer<Float> block) {
-        for (Float p : lista) {
+    public static void processNumbers(List<Double> lista, Predicate<Double> tester, Consumer<Double> block) {
+        for (Double p : lista) {
             if (tester.test(p)) {
                 block.accept(p);
             }
         }
     }
 
-    public static void processNumbersWithFunction(List<Float> roster, Predicate<Float> tester,
-            Function<Float, String> mapper,
+    public static void processNumbersWithFunction(List<Double> roster, Predicate<Double> tester,
+            Function<Double, String> mapper,
             Consumer<String> block) {
-        for (Float p : roster) {
+        for (Double p : roster) {
             if (tester.test(p)) {
                 String data = mapper.apply(p);
                 block.accept(data);

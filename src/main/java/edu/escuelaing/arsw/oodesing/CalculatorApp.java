@@ -20,33 +20,33 @@ import java.util.List;
 public class CalculatorApp {
     public static void main(String[] args) throws Exception {
         Calculator myApp = new Calculator();
-        Calculator.FloatMath mean=(a)->{
-            Float ans=0f;
-            for(Float n:a){
+        Calculator.DoubleMath mean=(a)->{
+            Double ans=0.0;
+            for(Double n:a){
                 ans+=n;
             }
             return ans/a.size();
         };
         
-        Calculator.FloatMath sDeviation=(a)->{
-            Float m=myApp.operateBinary(a, mean);
-            Float ans=0f;
-            for(Float n:a){
-                ans+=(float) Math.pow((n-m),2);
+        Calculator.DoubleMath sDeviation=(a)->{
+            Double m=myApp.operateBinary(a, mean);
+            Double ans=0.0;
+            for(Double n:a){
+                ans+=Math.pow((n-m),2);
             }
-            return (float) Math.sqrt(ans/(a.size()-1));
+            return Math.sqrt(ans/(a.size()-1));
         };
                                     
         Path file = Paths.get(args[0]);  
-        List<Float> lista=getNumbers(file);                         
-        Float m=myApp.operateBinary(lista, mean);
-        Float d=myApp.operateBinary(lista, sDeviation);
+        List<Double> lista=getNumbers(file);                         
+        Double m=myApp.operateBinary(lista, mean);
+        Double d=myApp.operateBinary(lista, sDeviation);
         System.out.println("Mean : "+m+", Standard Deviation: "+d);     
                
     }
 
-    private static List<Float> getNumbers(Path file) throws Exception {
-        List<Float> ans=new LinkedListG<>();
+    private static List<Double> getNumbers(Path file) throws Exception {
+        List<Double> ans=new LinkedListG<>();
         Charset charset = Charset.forName("UTF-8");                                 
         try {
             BufferedReader BR = Files.newBufferedReader(file, charset);
@@ -54,7 +54,7 @@ public class CalculatorApp {
             while (linea != null) {  
                 String[] tmp = linea.split(" "); 
                 for (String s:tmp){
-                    ans.add(Float.parseFloat(s));
+                    ans.add(Double.parseDouble(s));
                 }
                 linea= BR.readLine();
             }                     

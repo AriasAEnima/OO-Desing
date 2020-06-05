@@ -14,8 +14,8 @@ import static org.junit.Assert.*;
  */
 public class CalculadoraTest {
     private Calculator myApp;
-    private Calculator.FloatMath mean;
-    private Calculator.FloatMath sDeviation;
+    private Calculator.DoubleMath mean;
+    private Calculator.DoubleMath sDeviation;
     private  Calculator.IntegerMath addition = (a, b) -> a + b;
     private  Calculator.IntegerMath subtraction = (a, b) -> a - b;
 
@@ -27,20 +27,20 @@ public class CalculadoraTest {
     public void setUp() {
         myApp = new Calculator();
         mean=(a)->{
-            Float ans=0f;
-            for(Float n:a){
+            Double ans=0.0;
+            for(Double n:a){
                 ans+=n;
             }
             return ans/a.size();
         };
         
         sDeviation=(a)->{
-            Float m=myApp.operateBinary(a, mean);
-            Float ans=0f;
-            for(Float n:a){
+            Double m=myApp.operateBinary(a, mean);
+            Double ans=0.0;
+            for(Double n:a){
                 ans+=(n-m)*(n-m);
             }
-            return (float) Math.sqrt(ans/(a.size()-1));
+            return Math.sqrt(ans/(a.size()-1));
         };
     }
 
@@ -59,59 +59,59 @@ public class CalculadoraTest {
     
     @Test
     public void Datos1() {
-        List<Float> lista=new LinkedListG<Float>();
-        lista.add(160f);
-        lista.add(591f);
-        lista.add(114f);
-        lista.add(229f);
-        lista.add(230f);
-        lista.add(270f);
-        lista.add(128f);
-        lista.add(1657f);
-        lista.add(624f);
-        lista.add(1503f);
-        Float ans1m=myApp.operateBinary(lista, mean);
-        Float ans2m=myApp.operateBinary(lista, sDeviation);
-        assertEquals(550.6f, ans1m,0.0001);
-        assertEquals(572.03f, ans2m,0.005);
+        List<Double> lista=new LinkedListG<Double>();
+        lista.add(160.0);
+        lista.add(591.0);
+        lista.add(114.0);
+        lista.add(229.0);
+        lista.add(230.0);
+        lista.add(270.0);
+        lista.add(128.0);
+        lista.add(1657.0);
+        lista.add(624.0);
+        lista.add(1503.0);
+        Double ans1m=myApp.operateBinary(lista, mean);
+        Double ans2m=myApp.operateBinary(lista, sDeviation);
+        assertEquals(550.6, ans1m,0.0001);
+        assertEquals(572.03, ans2m,0.005);
     }
     
      @Test
     public void Datos2() {
-        List<Float> lista=new LinkedListG<Float>();
-        lista.add(15.0f);
-        lista.add(69.9f);
-        lista.add(6.5f);
-        lista.add(22.4f);
-        lista.add(28.4f);
-        lista.add(65.9f);
-        lista.add(19.4f);
-        lista.add(198.7f);
-        lista.add(38.8f);
-        lista.add(138.2f);
-        Float ans1m=myApp.operateBinary(lista, mean);
-        Float ans2m=myApp.operateBinary(lista, sDeviation);
-        assertEquals(60.32f, ans1m,0.0001);
-        assertEquals(62.26f, ans2m,0.005);
+        List<Double> lista=new LinkedListG<Double>();
+        lista.add(15.0);
+        lista.add(69.9);
+        lista.add(6.5);
+        lista.add(22.4);
+        lista.add(28.4);
+        lista.add(65.9);
+        lista.add(19.4);
+        lista.add(198.7);
+        lista.add(38.8);
+        lista.add(138.2);
+        Double ans1m=myApp.operateBinary(lista, mean);
+        Double ans2m=myApp.operateBinary(lista, sDeviation);
+        assertEquals(60.32, ans1m,0.0001);
+        assertEquals(62.26, ans2m,0.005);
     }
     
     @Test
     public void datos3(){
-        List<Float> lista=new LinkedListG<Float>();
-        lista.add(186f);
-        lista.add(699f);
-        lista.add(132f);
-        lista.add(272f);
-        lista.add(291f);
-        lista.add(331f);
-        lista.add(199f);
-        lista.add(1890f);
-        lista.add(788f);
-        lista.add(1601f);
-        Float ans1m=myApp.operateBinary(lista, mean);
-        Float ans2m=myApp.operateBinary(lista, sDeviation);
-        assertEquals(638.9f, ans1m,0.0001);
-        assertEquals(625.633981f, ans2m,0.005);
+        List<Double> lista=new LinkedListG<Double>();
+        lista.add(186.0);
+        lista.add(699.0);
+        lista.add(132.0);
+        lista.add(272.0);
+        lista.add(291.0);
+        lista.add(331.0);
+        lista.add(199.0);
+        lista.add(1890.0);
+        lista.add(788.0);
+        lista.add(1601.0);
+        Double ans1m=myApp.operateBinary(lista, mean);
+        Double ans2m=myApp.operateBinary(lista, sDeviation);
+        assertEquals(638.9, ans1m,0.0001);
+        assertEquals(625.633981, ans2m,0.00001);
     }
 
  
